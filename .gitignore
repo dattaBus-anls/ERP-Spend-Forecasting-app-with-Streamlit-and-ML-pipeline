@@ -1,0 +1,29 @@
+﻿# Ignore environment settings and secrets
+.env
+
+# Ignore model files and outputs
+models/
+*.joblib
+*.pkl
+
+# Ignore data outputs (optional, remove if needed)
+data/processed/
+data/raw/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+.venv/
+env/
+venv/
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+
+# VSCode / PyCharm configs (optional)
+.vscode/
+.idea/
