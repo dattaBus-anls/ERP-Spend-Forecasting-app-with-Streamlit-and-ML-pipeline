@@ -6,6 +6,7 @@ models/
 *.joblib
 *.pkl
 
+
 # Ignore data outputs (optional, remove if needed)
 data/processed/
 data/raw/
@@ -27,3 +28,10 @@ venv/
 # VSCode / PyCharm configs (optional)
 .vscode/
 .idea/
+
+
+# Allow selected model plots for README
+!models/feature_importance_plot.png
+!models/predicted_vs_actual.png
+!models/residuals_vs_actual.png
+!models/residuals_histogram.png

@@ -25,8 +25,6 @@ df.columns = [col.strip().replace("\ufeff", "") for col in df.columns]
 print("✅ Dataset loaded successfully.")
 
 
-
-
 print("=" * 100)
 print("📦 Assigning item categories and departments...")
 categories = ['Office Supplies', 'Packaging', 'MRO', 'Raw Materials', 'Electronics',

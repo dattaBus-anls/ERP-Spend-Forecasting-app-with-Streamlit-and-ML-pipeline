@@ -36,7 +36,9 @@ print(f"✅ Dataset shape: {df.shape}")
 # ============================================================
 print("=" * 100)
 print("🧪 Selecting features and target for modeling...")
-features = ['Quantity', 'Negotiated_Price', 'Lead Time (Days)', 'PPI', 'Qty_LeadTime_Interaction']
+# Removing this line 
+# features = ['Quantity', 'Negotiated_Price', 'Lead Time (Days)', 'PPI', 'Qty_LeadTime_Interaction']
+features = ['Quantity', 'Negotiated_Price', 'Lead Time (Days)', 'PPI']
 target = 'Spend'
 
 X = df[features]
