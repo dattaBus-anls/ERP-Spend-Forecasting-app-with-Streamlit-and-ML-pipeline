@@ -166,4 +166,4 @@ streamlit run src/streamlit_fin_version.py
 
 ---
 
-> Built with 💡 operational intelligence and data-driven forecasting
+> Built 💡 data-driven forecasting
