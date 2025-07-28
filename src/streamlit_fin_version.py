@@ -32,11 +32,20 @@ except ImportError:
 warnings.filterwarnings('ignore')
 logging.basicConfig(level=logging.INFO)
 
+# for debug 
+
+print("="*100)
+print("✅ Streamlit app started")
+
 # ============================================================
 # 🔧 ENHANCED CONFIGURATION & SETUP
 # ============================================================
 load_dotenv()
 FRED_API_KEY = os.getenv("FRED_API_KEY")
+
+# for debug 
+print("✅ .env loaded")
+print(f"✅ FRED_API_KEY retrieved: {FRED_API_KEY is not None}")
 
 # Enhanced PPI mapping with additional categories
 PPI_SERIES_MAP = {
@@ -156,10 +165,21 @@ def load_trained_model():
     """Load trained model artifacts with comprehensive error handling and fallback"""
     try:
         # Attempt to load primary model artifacts
+        print("✅ Loading best_model.joblib...")
         model = joblib.load("models/best_model.joblib")
+        print("✅ best_model.joblib loaded successfully")
+        
+        print("✅ Loading feature_scaler.joblib...")
         scaler = joblib.load("models/feature_scaler.joblib")
+        print("✅ feature_scaler.joblib loaded")
+        
+        print("✅ Loading feature_names.joblib...")
         features = joblib.load("models/feature_names.joblib")
+        print("✅ feature_names.joblib loaded")
+        
+        print("✅ Loading model_metadata.joblib...")
         metadata = joblib.load("models/model_metadata.joblib")
+        print("✅ model_metadata.joblib loaded")
         
         return {
             'model': model,
