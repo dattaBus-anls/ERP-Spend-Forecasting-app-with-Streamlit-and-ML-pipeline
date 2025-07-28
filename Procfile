@@ -1,0 +1,1 @@
+streamlit run src/streamlit_fin_version.py
