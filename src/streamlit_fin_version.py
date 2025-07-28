@@ -9,7 +9,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
 import warnings
 from datetime import datetime, timedelta
 import plotly.express as px
@@ -23,6 +22,11 @@ import json
 import logging
 from typing import Dict, Tuple, Optional, List
 import hashlib
+
+try:
+    import joblib
+except ImportError:
+    import sklearn.joblib as joblib
 
 # Suppress warnings for cleaner output
 warnings.filterwarnings('ignore')
