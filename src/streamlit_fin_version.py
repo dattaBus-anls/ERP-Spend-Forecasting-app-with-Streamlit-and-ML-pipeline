@@ -11,6 +11,7 @@ import streamlit as st
 # For debug 
 import traceback
 try:
+    print("✅ App reached try block")  # for debug 
 
     import pandas as pd
     import numpy as np
@@ -2512,7 +2513,7 @@ try:
 
     if __name__ == "__main__": 
         main()
-    
+
 # delet aftre debug   
 except Exception as e:
     st.error("🚨 The app failed to launch due to the following error:")
