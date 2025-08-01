@@ -1,37 +1,30 @@
-﻿# Ignore environment settings and secrets
-.env
+﻿# 🔒 Secrets
+.env  # to Keep my FRED API key and other credentials private
 
-# Ignore model files and outputs
-models/
-*.joblib
-*.pkl
-
-
-# Ignore data outputs (optional, remove if needed)
-data/processed/
-data/raw/
-
-# Ignore Python cache
+# 🧹 Python cache files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Ignore virtual environments
+# 🧪 Virtual environment folders (local only)
 .venv/
-env/
 venv/
+env/
 
-# Jupyter / Colab
+# 📒 Jupyter & Colab checkpoints
 .ipynb_checkpoints/
 
-# VSCode / PyCharm configs (optional)
+# 🧠 IDE/project settings (optional)
 .vscode/
 .idea/
 
+# 📦 Keep all model files for deployment
+!models/*.joblib
+!models/*.csv
+!models/*.png
 
-# Allow selected model plots for README
-!models/feature_importance_plot.png
-!models/predicted_vs_actual.png
-!models/residuals_vs_actual.png
-!models/residuals_histogram.png
+# ✅ Optionally ignore raw/unprocessed data (if large)
+# data/raw/
+# data/processed/
+📁
