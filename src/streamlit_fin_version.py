@@ -1394,7 +1394,8 @@ try:
             for i, (img_path, title) in enumerate(zip(performance_images, image_titles)):
                 with perf_cols[i]:
                     if os.path.exists(img_path):
-                        st.image(img_path, caption=title, use_container_width=True)
+                        # st.image(img_path, caption=title, use_container_width=True)
+                        st.image(img_path, caption=title)
                     else:
                         st.warning(f"⚠️ {title} not found at {img_path}")
 
@@ -2483,30 +2484,74 @@ try:
                 # Create the styled container using Streamlit components
                 st.markdown("""
                 <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px; border-radius: 10px; border-left: 5px solid #007bff; margin: 20px 0;">
-                    <h4 style="margin: 0 0 15px 0; color: #007bff;">🔬 Advanced Methodology Summary</h4>
+                    <h4 style="margin: 0 0 15px 0; color: #007bff;">🔬 Advanced Methodology & Important Disclaimers</h4>
                 </div>
                 """, unsafe_allow_html=True)
-                
-                # Use regular markdown for the content
+
+                # Use regular markdown for the methodology content
                 st.markdown(f"""
                 **Enhanced Prediction Formula:**  
                 `{forecast_result['model_info']['formula']}`
-                
+
                 **Prediction Method:**  
                 • {forecast_result['model_info']['prediction_method']}
-                
+
                 **Data Integration:**  
                 • Real-time Producer Price Index from Federal Reserve Economic Data (FRED)  
                 • Comprehensive market risk indicators (VIX, Economic Uncertainty, Interest Rates)  
                 • Category-specific supply chain risk assessment  
                 • Seasonal demand pattern analysis  
                 • Advanced uncertainty quantification with multiple confidence levels
-                
+
                 **Quality Assurance:**  
                 • Multi-source data validation • Real-time market condition monitoring • Enhanced confidence scoring
                 """)
-                
+
+                # Add the disclaimer section with corrected formatting
                 st.markdown("---")
+                st.markdown("### ⚠️ Important Usage Limitations")
+
+                # Create expandable disclaimer with better formatting
+                with st.expander("📋 Click to view complete system limitations and disclaimers", expanded=False):
+                    
+                    st.markdown("""
+                    #### 🔍 Key System Limitations:
+                    
+                    **📊 Limited Training Data:**  
+                    ML model trained on ~800 transactions. May have reduced accuracy for unusual procurement scenarios.
+                    
+                    **🌐 External Data Dependency:**  
+                    Model uses latest market data from Federal Reserve API (FRED). Predictions depend on external data availability.
+                    
+                    **💰 Volume Discount Learning:**  
+                    ML model learned that large orders receive 20-35% volume discounts from historical data. May not reflect current market conditions.
+                    
+                    **🧠 Hybrid Architecture:**  
+                    System combines ML predictions with separate business logic for market risk and seasonal impacts. These rules use programmed algorithms, not learned patterns.
+                    
+                    **📦 Quantity Limitations:**  
+                    Model trained only on orders ≤5,000 units. Quantities above 5,000 have reduced accuracy and require manual validation.
+                    
+                    ---
+                    
+                    #### 🎯 Usage Guidelines:
+                    
+                    **✅ Recommended Use:**  
+                    • Standard orders within historical ranges (50-5,000 units)  
+                    • Categories with substantial training data  
+                    • Stable market conditions  
+                    
+                    **⚠️ Manual Review Required:**  
+                    • Orders >5,000 units  
+                    • Unit prices >50% above/below typical range  
+                    • Critical or emergency procurements  
+                    
+                    **🔒 Professional Guidance:**  
+                    This tool provides sophisticated analysis to support decision-making, but professional procurement judgment remains essential for optimal outcomes.
+                    """)
+
+                st.markdown("---")
+
 
         with tab2:
             display_ml_dashboard()
