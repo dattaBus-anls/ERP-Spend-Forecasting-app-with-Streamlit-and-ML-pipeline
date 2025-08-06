@@ -1394,7 +1394,7 @@ try:
             for i, (img_path, title) in enumerate(zip(performance_images, image_titles)):
                 with perf_cols[i]:
                     if os.path.exists(img_path):
-                        st.image(img_path, caption=title, use_column_width=True)
+                        st.image(img_path, caption=title, use_container_width=True)
                     else:
                         st.warning(f"⚠️ {title} not found at {img_path}")
 
