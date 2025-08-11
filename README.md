@@ -1,6 +1,6 @@
 # 📊 ERP Spend Forecasting App with Streamlit & Machine Learning
 
-This project is a **production-ready AI-powered forecasting dashboard** that predicts procurement spend using historical ERP-style data, macroeconomic indicators (PPI), and machine learning models. Built for business analysts and decision-makers, the app provides accurate spend predictions, cost breakdowns, and confidence metrics in real-time.
+This project is a **production ready AI powered forecasting dashboard** that predicts procurement spend using historical ERP-style data, macroeconomic indicators (PPI), and machine learning models. Built for business analysts and decision-makers, the app provides accurate spend predictions, cost breakdowns, and confidence metrics in real-time.
 
 ![Dashboard Screenshot](models/predicted_vs_actual.png)
 
@@ -160,10 +160,24 @@ streamlit run src/streamlit_fin_version.py
 
 ## 📚 References
 
-- [FRED API Documentation](https://fred.stlouisfed.org/docs/api/fred/)
-- [Kaggle Procurement Dataset](https://www.kaggle.com/datasets/shahriarkabir/procurement-kpi-analysis-dataset)
-- [Streamlit Docs](https://docs.streamlit.io/)
+- FRED API Documentation:https://fred.stlouisfed.org/docs/api/fred/
+- Kaggle Procurement Dataset: https://www.kaggle.com/datasets/shahriarkabir/procurement-kpi-analysis-dataset
+- Streamlit Docs:https://docs.streamlit.io/
 
 ---
 
-> Built for💡 data-driven forecasting
+---
+
+## 🎯 Deployment
+
+- github:https://github.com/dattaBus-anls/ERP-Spend-Forecasting-app-with-Streamlit-and-ML-pipeline.git
+- Streamlit Cloud: https://erp-spend-forecasting-app-with-app-and-ml-pipeline-p9zrfxmjz44.streamlit.app/
+
+---
+
+## 📧 Contact
+
+Apu Datta - uda.mr.iub@gmail.com
+Baruch College, CUNY
+
+> Built for💡AI data-driven forecasting

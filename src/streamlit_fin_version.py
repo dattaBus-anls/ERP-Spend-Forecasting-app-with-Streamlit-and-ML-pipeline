@@ -1646,6 +1646,28 @@ try:
         # Load model artifacts BEFORE creating tabs
         with st.spinner("🔄 Loading advanced prediction models..."):
             model_artifacts = load_trained_model()
+        
+        # ✅ PROJECT DESCRIPTION BOX 
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%); 
+                   border: 2px solid #17a2b8; 
+                   border-radius: 15px; 
+                   padding: 5px; 
+                   margin: 20px 0; 
+                   box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <div style="font-size: 2em; margin-right: 12px;">🚀</div>
+                <h4 style="margin: 0; color: #0c5460; font-weight: bold;">Project Overview</h4>
+            </div>
+            <div style="color: #2c3e50; line-height: 1.6; font-size: 1.05em;">
+                In this project, I built a comprehensive machine learning system 🤖 to predict future procurement spending based on quantity, negotiated prices 💰, lead times, and real-time market conditions 📈. I used historical ERP procurement data integrated with Federal Reserve Economic Data (FRED) API 🏦 to capture live market indicators including Producer Price Index (PPI), volatility measures, and economic uncertainty factors 🌐.
+            </div>
+            <div style="margin-top: 15px; padding-top: 12px; border-top: 1px solid rgba(23, 162, 184, 0.3); font-size: 0.9em; color: #6c757d; text-align: center;">
+                🔬 <strong>Key Technologies:</strong> Machine Learning • Real-time API Integration • Economic Data Analysis • Predictive Modeling
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+         
 
         # ✅ NEW: Add navigation tabs
         tab1, tab2 = st.tabs(["🎯 Spend Forecasting", "📈 ML Model Dashboard"])
@@ -1731,7 +1753,8 @@ try:
             
             ppi_series = PPI_SERIES_MAP.get(category, 'Unknown')
             current_ppi, baseline_ppi, ppi_date, ppi_chart_data = None, None, None, pd.DataFrame()
-            
+            ppi_variance = 0.0  # ✅ Ading this to - Prevents UnboundLocalError
+
             if use_realtime_ppi and manual_ppi == 0:
                 with st.sidebar:
                     with st.spinner(f"🔄 Fetching {category} market data..."):
@@ -1769,10 +1792,13 @@ try:
                             """, unsafe_allow_html=True)
             elif manual_ppi > 0:
                 current_ppi = manual_ppi
+                baseline_ppi = forecast_engine._get_estimated_baseline(category)
+                ppi_variance = ((current_ppi - baseline_ppi) / baseline_ppi) * 100 if baseline_ppi > 0 else 0.0  # ✅ ADD THIS LINE
                 st.sidebar.success(f"📊 Manual PPI: {current_ppi:.2f}")
             else:
                 current_ppi = forecast_engine._estimate_ppi(category)
                 baseline_ppi = forecast_engine._get_estimated_baseline(category)
+                ppi_variance = ((current_ppi - baseline_ppi) / baseline_ppi) * 100 if baseline_ppi > 0 else 0.0  # ✅ ADD THIS LINE
                 st.sidebar.info(f"📊 Estimated PPI: {current_ppi:.1f}")
 
             # Enhanced prediction button
